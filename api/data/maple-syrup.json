@@ -1,0 +1,74 @@
+[
+    {
+        "id": "001",
+        "name": "Sirop d'érable doré - Dorica",
+        "description": "Sirop d'érable 100% pur, doré goût délicat - Canada n°1. Du sirop d'érable dans une magnifique bouteille en verre, idéal pour offrir. Celui-ci est de couleur claire et d'une qualité supérieure.",
+        "image": "https://static.weezbe.com/saveurserable/Images/products/p_18_220226103308_original.png",
+        "price": 9.50,
+        "stock": 150,
+        "type": "CLEAR"
+    },
+    {
+        "id": "002",
+        "name": "Sirop d'érable ambré - Bouteille Feuille d'érable",
+        "description": "Sirop d'érable 100% pur, ambré goût riche, n°1 au Canada. Du sirop d'érable contenu dans la célèbre feuille d'érable en verre. Idéal pour découvrir l'univers du Québec et son délicieux sirop...",
+        "image": "https://static.weezbe.com/saveurserable/Images/products/p_50G_220219093752.png",
+        "price": 7.90,
+        "stock": 300,
+        "type": "AMBER"
+    },
+    {
+        "id": "003",
+        "name": "Sirop d'érable ambré - Dorica",
+        "description": "Sirop d'érable 100% pur, ambré goût riche - Canada n°1. Du sirop d'érable contenu dans une magnifique anse ronde en verre.",
+        "image": "https://static.weezbe.com/saveurserable/Images/products/p_662_220504161718_original.png",
+        "price": 8.50,
+        "stock": 100,
+        "type": "AMBER"
+    },
+    {
+        "id": "004",
+        "name": "Sirop d'érable foncé (goût robuste) - Cruchon",
+        "description": "Sirop d'érable 100% pur, foncé goût robuste - Canada n°1. Du sirop d'érable dans un cruchon plastique économique et pratique à utiliser. Le sirop d'érable de catégorie foncé est récolté en fin de saison (temps des sucres), avec son goût plus caramélisé et plus prononcé, il s'apprête particulièrement bien à la cuisson. Idéal pour vos préparations culinaires.",
+        "image": "https://static.weezbe.com/saveurserable/Images/products/p_750_220302101032_original.png",
+        "price": 22.90,
+        "stock": 100,
+        "type": "DARK"
+    },
+    {
+        "id": "005",
+        "name": "Sirop d'érable doré - Bouteille Feuille d'érable",
+        "description": "Sirop d'érable 100% pur, doré goût délicat, n°1 au Canada. Du sirop d'érable contenu dans la célèbre feuille d'érable en verre. Idéal pour découvrir l'univers du Québec et son délicieux sirop de première qualité...",
+        "image": "https://static.weezbe.com/saveurserable/Images/products/p_881_220507161058_original.png",
+        "price": 7.90,
+        "stock": 300,
+        "type": "CLEAR"
+    },
+    {
+        "id": "006",
+        "name": "Sirop d'érable en conserve",
+        "description": "Sirop d'érable de première qualité, pur à 100 %, origine Canada, Catégorie A, ambré (goût riche). Un goût délicieux, une couleur ambrée, une texture généreuse. Ce sirop d'érable est une gourmandise pour les papilles. C'est LE sirop le plus populaire sur le marché ! Pour un rapport qualité/prix imbattable.",
+        "image": "https://www.produitcanadien.fr/sites/default/files/styles/slider_produit__800x800_/public/photos-produit/sirop-erable-conserve.png?itok=txgPlpPP",
+        "price": 10.90,
+        "stock": 50,
+        "type": "AMBER"
+    },
+    {
+        "id": "007",
+        "name": "Sirop d'érable doré",
+        "description": "Un magnifique sirop d'érable doré de première qualité. 100% naturel et conditionné dans une belle bouteille en verre afin de conserver son goût et ses qualités gustatives.",
+        "image": "https://www.produitcanadien.fr/sites/default/files/styles/slider_produit__800x800_/public/photos-produit/sirop-erable-dore.png?itok=3UadqkO5",
+        "price": 8.30,
+        "stock": 350,
+        "type": "CLEAR"
+    },
+    {
+        "id": "008",
+        "name": "Sirop d'érable bio du Canada",
+        "description": "Un magnifique sirop d'érable doré de première qualité. 100% naturel et conditionné dans une belle bouteille en verre afin de conserver son goût et ses qualités gustatives.",
+        "image": "https://produits.bienmanger.com/1826-0w0h0_Sirop_Erable_Bio_Canada.jpg",
+        "price": 8.20,
+        "stock": 350,
+        "type": "AMBER"
+    }
+]

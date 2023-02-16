@@ -1,6 +1,6 @@
 interface ServiceResponse {
-    code: number,
-    description?: string,
+  code: number;
+  description?: string;
 }
 
 export default ServiceResponse;

@@ -1,6 +1,6 @@
 interface OrderResponseDto {
-    isOrderValid: boolean;
-    error?: string[];
+  isOrderValid: boolean;
+  error?: string[];
 }
 
 export default OrderResponseDto;

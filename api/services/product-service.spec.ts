@@ -47,16 +47,16 @@ describe('ProductService', () => {
   describe('Should getMapleSyrupDetail', () => {
     it('with an existing syrup identifier', () => {
       const expectedSyrup: MapleSyrupDto = {
-        id: '001',
+        id: '1',
         name: `Sirop d'érable doré - Dorica`,
         image: `mockImg`,
         price: 9.5,
         stock: 150,
-        description: 'product n°001',
+        description: 'product n°1',
         type: CatalogueItemTypeEnum.clear
       };
 
-      service.getMapleSyrupDetail('001').subscribe({
+      service.getMapleSyrupDetail('1').subscribe({
         next: (syrup) => {
           expect(mockFileService.readFile).toHaveBeenCalledWith(FileNameEnum.mapleSyrup);
           expect(syrup).toStrictEqual(expectedSyrup);

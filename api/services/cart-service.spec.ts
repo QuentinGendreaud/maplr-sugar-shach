@@ -46,14 +46,14 @@ describe('CartService', () => {
   describe('Should putProductToCart ', () => {
     it(`with a product that isn't in cart but who exists`, async () => {
       const expectedLine: CartLineDto = {
-        productId: '003',
+        productId: '3',
         name: `Sirop d'érable doré - Dorica`,
         image: `mockImg`,
         price: 9.5,
         qty: 1
       };
 
-      service.putProductToCart('003').subscribe({
+      service.putProductToCart('3').subscribe({
         next: () => {
           expect(mockFileService.addElementInFile).toHaveBeenCalledWith(FileNameEnum.cart, expectedLine);
         }
@@ -61,9 +61,9 @@ describe('CartService', () => {
     });
 
     it('with a product that already is in cart', () => {
-      service.putProductToCart('001').subscribe({
+      service.putProductToCart('1').subscribe({
         error: (errorValue) => {
-          expect(errorValue).toEqual({ code: 400, description: 'The product #001 is already in cart' });
+          expect(errorValue).toEqual({ code: 400, description: 'The product #1 is already in cart' });
           expect(mockFileService.addElementInFile).not.toHaveBeenCalled();
         }
       });
@@ -86,7 +86,7 @@ describe('CartService', () => {
     it('with a product contained in cart', () => {
       const expectedRemainingLines: CartLineDto[] = [
         {
-          productId: '006',
+          productId: '6',
           name: `Sirop d'érable en conserve`,
           image: `mockImg`,
           price: 10.9,
@@ -94,7 +94,7 @@ describe('CartService', () => {
         }
       ];
 
-      service.deleteProductFromCart('001').subscribe({
+      service.deleteProductFromCart('1').subscribe({
         next: () => {
           expect(mockFileService.updateFile).toHaveBeenCalledWith(FileNameEnum.cart, expectedRemainingLines);
         }
@@ -102,9 +102,9 @@ describe('CartService', () => {
     });
 
     it('with a product not contained in cart', () => {
-      service.deleteProductFromCart('003').subscribe({
+      service.deleteProductFromCart('3').subscribe({
         error: (errorValue) => {
-          expect(errorValue).toEqual({ code: 400, description: `The product #003 isn't in cart` });
+          expect(errorValue).toEqual({ code: 400, description: `The product #3 isn't in cart` });
           expect(mockFileService.addElementInFile).not.toHaveBeenCalled();
         }
       });
@@ -115,14 +115,14 @@ describe('CartService', () => {
     it('with a product contained in cart', () => {
       const expectedLines: CartLineDto[] = [
         {
-          productId: '001',
+          productId: '1',
           name: `Sirop d'érable doré - Dorica`,
           image: `mockImg`,
           price: 9.5,
           qty: 5
         },
         {
-          productId: '006',
+          productId: '6',
           name: `Sirop d'érable en conserve`,
           image: `mockImg`,
           price: 10.9,
@@ -130,7 +130,7 @@ describe('CartService', () => {
         }
       ];
 
-      service.patchProductFromCart('001', 5).subscribe({
+      service.patchProductFromCart('1', 5).subscribe({
         next: () => {
           expect(mockFileService.updateFile).toHaveBeenCalledWith(FileNameEnum.cart, expectedLines);
         }
@@ -138,9 +138,9 @@ describe('CartService', () => {
     });
 
     it('with a product not contained in cart', () => {
-      service.patchProductFromCart('003', 5).subscribe({
+      service.patchProductFromCart('3', 5).subscribe({
         error: (errorValue) => {
-          expect(errorValue).toEqual({ code: 400, description: `The product #003 isn't in cart` });
+          expect(errorValue).toEqual({ code: 400, description: `The product #3 isn't in cart` });
           expect(mockFileService.addElementInFile).not.toHaveBeenCalled();
         }
       });

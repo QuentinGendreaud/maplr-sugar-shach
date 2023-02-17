@@ -3,7 +3,7 @@ import CatalogueItemDto from '../interfaces/catalogue-item';
 
 export const mockCatalogueSyrups: CatalogueItemDto[] = [
   {
-    id: '001',
+    id: '1',
     name: `Sirop d'érable doré - Dorica`,
     image: `mockImg`,
     price: 9.5,
@@ -11,7 +11,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.clear
   },
   {
-    id: '002',
+    id: '2',
     name: `Sirop d'érable ambré - Bouteille Feuille d'érable`,
     image: `mockImg`,
     price: 9.5,
@@ -19,7 +19,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.amber
   },
   {
-    id: '003',
+    id: '3',
     name: `Sirop d'érable doré - Dorica`,
     image: `mockImg`,
     price: 9.5,
@@ -27,7 +27,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.amber
   },
   {
-    id: '004',
+    id: '4',
     name: `Sirop d'érable foncé (goût robuste) - Cruchon`,
     image: `mockImg`,
     price: 9.5,
@@ -35,7 +35,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.dark
   },
   {
-    id: '005',
+    id: '5',
     name: `Sirop d'érable doré - Bouteille Feuille d'érable`,
     image: `mockImg`,
     price: 9.5,
@@ -43,7 +43,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.clear
   },
   {
-    id: '006',
+    id: '6',
     name: `Sirop d'érable en conserve`,
     image: `mockImg`,
     price: 10.9,
@@ -54,7 +54,7 @@ export const mockCatalogueSyrups: CatalogueItemDto[] = [
 
 export const mockCatalogueAmberSyrups: CatalogueItemDto[] = [
   {
-    id: '002',
+    id: '2',
     name: `Sirop d'érable ambré - Bouteille Feuille d'érable`,
     image: `mockImg`,
     price: 9.5,
@@ -62,7 +62,7 @@ export const mockCatalogueAmberSyrups: CatalogueItemDto[] = [
     type: CatalogueItemTypeEnum.amber
   },
   {
-    id: '003',
+    id: '3',
     name: `Sirop d'érable doré - Dorica`,
     image: `mockImg`,
     price: 9.5,

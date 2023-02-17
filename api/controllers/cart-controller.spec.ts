@@ -60,18 +60,18 @@ describe('CartController', () => {
 
   describe('Should putProductToCart', () => {
     it('with successfull response', () => {
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.putProductToCart(req, res);
-      expect(mockCartService.putProductToCart).toHaveBeenCalledWith('001');
+      expect(mockCartService.putProductToCart).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.ACCEPTED.code);
       expect(mockJson).toHaveBeenCalledWith();
     });
 
     it('with atleast a missing request param', () => {
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(false);
 
       // Trigger controller method + controls
@@ -85,12 +85,12 @@ describe('CartController', () => {
       // Override putProductToCart spy
       mockCartService.putProductToCart.mockReturnValue(throwError(() => serviceResponseConstantes.BAD_REQUEST));
 
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.putProductToCart(req, res);
-      expect(mockCartService.putProductToCart).toHaveBeenCalledWith('001');
+      expect(mockCartService.putProductToCart).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST.code);
       expect(mockJson).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST);
     });
@@ -98,18 +98,18 @@ describe('CartController', () => {
 
   describe('Should deleteProductFromCart', () => {
     it('with successfull response', () => {
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.deleteProductFromCart(req, res);
-      expect(mockCartService.deleteProductFromCart).toHaveBeenCalledWith('001');
+      expect(mockCartService.deleteProductFromCart).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.ACCEPTED.code);
       expect(mockJson).toHaveBeenCalledWith();
     });
 
     it('with atleast a missing request param', () => {
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(false);
 
       // Trigger controller method + controls
@@ -123,12 +123,12 @@ describe('CartController', () => {
       // Override deleteProductFromCart spy
       mockCartService.deleteProductFromCart.mockReturnValue(throwError(() => serviceResponseConstantes.BAD_REQUEST));
 
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.deleteProductFromCart(req, res);
-      expect(mockCartService.deleteProductFromCart).toHaveBeenCalledWith('001');
+      expect(mockCartService.deleteProductFromCart).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST.code);
       expect(mockJson).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST);
     });
@@ -136,18 +136,18 @@ describe('CartController', () => {
 
   describe('Should patchProductFromCart', () => {
     it('with successfull response', () => {
-      req.query = { productId: '001', newQty: '5' };
+      req.query = { productId: '1', newQty: '5' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.patchProductFromCart(req, res);
-      expect(mockCartService.patchProductFromCart).toHaveBeenCalledWith('001', 5);
+      expect(mockCartService.patchProductFromCart).toHaveBeenCalledWith('1', 5);
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.ACCEPTED.code);
       expect(mockJson).toHaveBeenCalledWith();
     });
 
     it('with atleast a missing request param', () => {
-      req.query = { productId: '001', newQty: '5' };
+      req.query = { productId: '1', newQty: '5' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(false);
 
       // Trigger controller method + controls
@@ -161,12 +161,12 @@ describe('CartController', () => {
       // Override patchProductFromCart spy
       mockCartService.patchProductFromCart.mockReturnValue(throwError(() => serviceResponseConstantes.BAD_REQUEST));
 
-      req.query = { productId: '001', newQty: '5' };
+      req.query = { productId: '1', newQty: '5' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.patchProductFromCart(req, res);
-      expect(mockCartService.patchProductFromCart).toHaveBeenCalledWith('001', 5);
+      expect(mockCartService.patchProductFromCart).toHaveBeenCalledWith('1', 5);
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST.code);
       expect(mockJson).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST);
     });

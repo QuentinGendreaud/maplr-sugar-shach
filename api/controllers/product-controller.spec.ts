@@ -85,12 +85,12 @@ describe('ProductController', () => {
 
   describe('Should getMapleSyrupDetail', () => {
     it('with successfull response', () => {
-      req.params = { productId: '001' };
+      req.params = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.getMapleSyrupDetail(req, res);
-      expect(mockProductService.getMapleSyrupDetail).toHaveBeenCalledWith('001');
+      expect(mockProductService.getMapleSyrupDetail).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.SUCCESS.code);
       expect(mockJson).toHaveBeenCalledWith(mockMapleSyrups[0]);
     });
@@ -109,12 +109,12 @@ describe('ProductController', () => {
       // Override getMapleSyrupDetail spy
       mockProductService.getMapleSyrupDetail.mockReturnValue(throwError(() => serviceResponseConstantes.BAD_REQUEST));
 
-      req.query = { productId: '001' };
+      req.query = { productId: '1' };
       jest.spyOn(RequestMiddleware, 'areRequestParamsValid').mockReturnValue(true);
 
       // Trigger controller method + controls
       controller.getMapleSyrupDetail(req, res);
-      expect(mockProductService.getMapleSyrupDetail).toHaveBeenCalledWith('001');
+      expect(mockProductService.getMapleSyrupDetail).toHaveBeenCalledWith('1');
       expect(res.status).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST.code);
       expect(mockJson).toHaveBeenCalledWith(serviceResponseConstantes.BAD_REQUEST);
     });

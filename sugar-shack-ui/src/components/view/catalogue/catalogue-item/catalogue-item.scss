@@ -1,0 +1,38 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/spacing.scss';
+
+.catalogue-item {
+  // TODO ==> Rework card rendering behaviour
+  min-width: 250px !important;
+  width: 20%;
+  max-width: 350px;
+  padding: $spacing-m;
+  margin: $spacing-m $spacing-m $spacing-m 0;
+
+  .product-badge {
+    align-self: end;
+    width: fit-content;
+    margin: $spacing-s;
+    text-transform: capitalize;
+    font-size: 1em;
+
+    &__dark.bg-primary {
+      background-color: $dark !important;
+    }
+
+    &__amber.bg-primary {
+      background-color: $amber !important;
+    }
+
+    &__clear.bg-primary {
+      background-color: $clear !important;
+    }
+  }
+
+  .more-detail {
+    margin-top: $spacing-m;
+    .more-detail-button {
+      width: 100%;
+    }
+  }
+}

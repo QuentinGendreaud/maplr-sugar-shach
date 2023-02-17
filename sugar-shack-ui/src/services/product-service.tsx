@@ -2,6 +2,7 @@ import axios from 'axios';
 import CatalogueItemTypeEnum from '../enums/catalogue-item-type.enum';
 import { environment } from '../env/environment';
 import CatalogueItemDto from '../interfaces/catalogue-item';
+import MapleSyrupDto from '../interfaces/maple-syrup';
 
 export function getProducts(type?: CatalogueItemTypeEnum) {
   const queryParams = type ? `?type=${type}` : '';
@@ -9,5 +10,5 @@ export function getProducts(type?: CatalogueItemTypeEnum) {
 }
 
 export function getProductDetail(productId: string) {
-  return axios.get(`${environment.apiBasePath}products/${productId}`);
+  return axios.get<MapleSyrupDto>(`${environment.apiBasePath}products/${productId}`);
 }

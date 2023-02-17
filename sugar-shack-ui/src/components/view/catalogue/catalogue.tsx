@@ -8,10 +8,9 @@ import './catalogue.scss';
 
 function CatalogueView() {
   const [syrupType, setSyrupType] = useState<CatalogueItemTypeEnum | undefined>(undefined);
-  const [serviceData, setServiceData] = useState<CatalogueItemDto[]>([]);
+  const [productList, setServiceData] = useState<CatalogueItemDto[]>([]);
 
   useEffect(() => {
-    console.log('change occured --> ', syrupType);
     getProducts(syrupType).then((res) => {
       return setServiceData(res.data);
     });
@@ -45,7 +44,7 @@ function CatalogueView() {
 
       {/* Catalogue item list */}
       <div className="catalogue-item-list">
-        {serviceData.map((catalogItem) => (
+        {productList.map((catalogItem) => (
           <CatalogueItem key={catalogItem.id} catalogItem={catalogItem} />
         ))}
       </div>

@@ -1,0 +1,43 @@
+@import '../../../styles/spacing.scss';
+
+@media screen and (orientation: landscape) {
+  .card-content {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .card-content {
+    grid-template-columns: 1fr;
+
+    .card-img-top {
+      max-width: 400px;
+      place-self: center;
+      margin-bottom: $spacing-m;
+    }
+  }
+}
+
+.card-content {
+  display: grid;
+  padding: 2rem 0;
+}
+
+.loading-spinner {
+  width: 5rem !important;
+  height: 5rem !important;
+  margin: $spacing-s;
+}
+
+.card-title {
+  color: var(--bs-primary);
+}
+
+.nav-back-btn {
+  color: var(--bs-primary) !important;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--bs-red) !important;
+  }
+}

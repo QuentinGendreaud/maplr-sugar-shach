@@ -3,13 +3,11 @@ import Badge from 'react-bootstrap/esm/Badge';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import CatalogueItemDto from '../../../../interfaces/catalogue-item';
+import FormattedAmount from '../../../formatted-amount/formatted-amount';
 import './catalogue-item.scss';
 
-function CatalogueItem(props: { catalogItem: CatalogueItemDto }) {
+function CatalogueItem(props: { catalogItem: CatalogueItemDto }): JSX.Element {
   const lowerCaseType = props.catalogItem.type.toLowerCase();
-  const displayedPrice = new Intl.NumberFormat(window.navigator.language, { style: 'currency', currency: 'CAD' }).format(
-    props.catalogItem.price
-  );
 
   return (
     <Card className="catalogue-item">
@@ -21,7 +19,7 @@ function CatalogueItem(props: { catalogItem: CatalogueItemDto }) {
         <Card.Title>{props.catalogItem.name}</Card.Title>
         <span>
           <strong>Price: </strong>
-          {displayedPrice}
+          <FormattedAmount amount={props.catalogItem.price} />
         </span>
         <div className="more-detail">
           <Button variant="primary" href={'/product-detail/' + props.catalogItem.id} className="more-detail-button">

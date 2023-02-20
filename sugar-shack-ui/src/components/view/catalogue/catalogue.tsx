@@ -6,7 +6,7 @@ import { getProducts } from '../../../services/product-service';
 import CatalogueItem from './catalogue-item/catalogue-item';
 import './catalogue.scss';
 
-function CatalogueView() {
+function CatalogueView(): JSX.Element {
   const [syrupType, setSyrupType] = useState<CatalogueItemTypeEnum | undefined>(undefined);
   const [productList, setServiceData] = useState<CatalogueItemDto[]>([]);
 

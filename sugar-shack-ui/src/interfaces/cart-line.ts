@@ -4,6 +4,7 @@ interface CartLineDto {
   image: string;
   price: number;
   qty: number;
+  totalPrice?: number;
 }
 
 export default CartLineDto;

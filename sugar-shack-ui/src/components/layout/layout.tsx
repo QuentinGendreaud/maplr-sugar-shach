@@ -16,7 +16,7 @@ function Layout() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="justify-content-end">
             <Nav>
-              <Button variant="primary" href="/cart">
+              <Button variant="primary" href="/cart" className="cart-btn">
                 View Cart
               </Button>
             </Nav>

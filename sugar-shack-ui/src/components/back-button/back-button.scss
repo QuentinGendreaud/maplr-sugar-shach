@@ -1,0 +1,8 @@
+.nav-back-btn {
+  color: var(--bs-primary) !important;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--bs-red) !important;
+  }
+}

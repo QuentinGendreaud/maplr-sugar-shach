@@ -1,7 +1,16 @@
+$navbar-text-color: #fff;
+
 .outlet-container {
   margin: 16px;
 }
 
 .navbar-brand {
-  color: #fff;
+  color: $navbar-text-color;
+  &:hover {
+    font-weight: 600;
+  }
+}
+
+.cart-btn.btn.btn-primary {
+  border-color: $navbar-text-color;
 }

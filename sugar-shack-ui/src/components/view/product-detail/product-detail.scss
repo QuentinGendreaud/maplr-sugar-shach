@@ -1,8 +1,11 @@
 @import '../../../styles/spacing.scss';
 
+$max-product-image-size: 400px;
+
 @media screen and (orientation: landscape) {
   .card-content {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: $max-product-image-size 1fr;
+    min-height: 85vh;
   }
 }
 
@@ -11,7 +14,6 @@
     grid-template-columns: 1fr;
 
     .card-img-top {
-      max-width: 400px;
       place-self: center;
       margin-bottom: $spacing-m;
     }
@@ -21,23 +23,28 @@
 .card-content {
   display: grid;
   padding: 2rem 0;
-}
 
-.loading-spinner {
-  width: 5rem !important;
-  height: 5rem !important;
-  margin: $spacing-s;
+  .card-img-top {
+    max-width: $max-product-image-size;
+  }
 }
 
 .card-title {
   color: var(--bs-primary);
 }
 
-.nav-back-btn {
-  color: var(--bs-primary) !important;
-  font-weight: 600;
+.cart-container {
+  margin-top: $spacing-m;
+}
 
-  &:hover {
-    color: var(--bs-red) !important;
+.cart-action {
+  .cart-action-quantity {
+    display: flex;
+    margin-top: $spacing-s;
+
+    input {
+      width: 100px;
+      margin: 0 $spacing-s;
+    }
   }
 }

@@ -1,0 +1,29 @@
+@import '../../../styles/spacing.scss';
+
+.cart-container {
+  .cart-header {
+    div {
+      font-weight: 700;
+    }
+  }
+
+  .cart-list {
+    .cart-element {
+      align-items: center;
+
+      & .row {
+        align-items: center;
+        .product-image {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .cart-actions,
+  .total-cart-price {
+    display: flex;
+    justify-content: flex-end;
+    margin: $spacing-m 0;
+  }
+}

@@ -2,28 +2,40 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
+import AlertTypeEnum from '../../../enums/alert-type.enum';
+import AlertMessageModel from '../../../interfaces/alert-message';
 import CartLineDto from '../../../interfaces/cart-line';
 import OrderLineDto from '../../../interfaces/order-line';
 import { getCart, removeItemFromCart } from '../../../services/cart-service';
 import { sendOrder } from '../../../services/order-service';
-import BackButton from '../../back-button/back-button';
-import FormattedAmount from '../../formatted-amount/formatted-amount';
-import Loader from '../../loader/loader';
+import AlertMessage from '../../shared/alert-message/alert-message';
+import BackButton from '../../shared/back-button/back-button';
+import FormattedAmount from '../../shared/formatted-amount/formatted-amount';
+import Loader from '../../shared/loader/loader';
 import './cart.scss';
 
 function Cart() {
+  const [alertMessage, setAlertMessage] = useState<AlertMessageModel>();
   const [totalCartPrice, setTotalCartPrice] = useState<number>(0);
   const [cartItems, setCartItems] = useState<CartLineDto[] | undefined>(undefined);
   useEffect(() => {
-    getCart().then((res) => {
-      let totalPrice = 0;
-      res.data.map((line) => {
-        line.totalPrice = calculateLineTotalPrice(line);
-        totalPrice += line.totalPrice;
+    getCart()
+      .then((res) => {
+        let totalPrice = 0;
+        res.data.map((line) => {
+          line.totalPrice = calculateLineTotalPrice(line);
+          totalPrice += line.totalPrice;
+        });
+        setTotalCartPrice(totalPrice);
+        return setCartItems(res.data);
+      })
+      .catch(() => {
+        setAlertMessage({
+          alertType: AlertTypeEnum.danger,
+          description: 'Failed to load cart items',
+          title: 'Error'
+        });
       });
-      setTotalCartPrice(totalPrice);
-      return setCartItems(res.data);
-    });
   }, []);
 
   const convertCartLineToOrderLine = function (cartLines: CartLineDto[]): OrderLineDto[] {
@@ -34,15 +46,33 @@ function Cart() {
     return line.price * line.qty;
   };
 
-  const removeLineFormCart = function (productId: string) {
-    removeItemFromCart(productId).then(() => {
-      const remainingLines = cartItems?.filter((line) => line.productId !== productId);
-      setCartItems(remainingLines);
-    });
+  const removeLineFormCart = function (productId: string): Promise<void> {
+    return removeItemFromCart(productId)
+      .then(() => {
+        const remainingLines = cartItems?.filter((line) => line.productId !== productId);
+        setCartItems(remainingLines);
+        setAlertMessage({
+          alertType: AlertTypeEnum.success,
+          description: 'The item has been removed from cart',
+          title: 'Success'
+        });
+      })
+      .catch(() => {
+        setAlertMessage({
+          alertType: AlertTypeEnum.danger,
+          description: 'Failed to remove the item from the cart',
+          title: 'Error'
+        });
+      });
   };
 
   return (
     <div>
+      {alertMessage ? (
+        <AlertMessage title={alertMessage.title} description={alertMessage.description} alertType={alertMessage.alertType} />
+      ) : (
+        <div></div>
+      )}
       <BackButton />
       <div>
         <h1>Cart View :</h1>
@@ -107,9 +137,18 @@ function Cart() {
                     onClick={() => {
                       console.log('try to update data');
                       const orderLines = convertCartLineToOrderLine(cartItems);
-                      sendOrder(orderLines).then(() => {
-                        setCartItems([]);
-                      });
+                      sendOrder(orderLines)
+                        .then(() => {
+                          setCartItems([]);
+                          setAlertMessage({ alertType: AlertTypeEnum.success, description: 'Your order has been sent', title: 'Success' });
+                        })
+                        .catch(() => {
+                          setAlertMessage({
+                            alertType: AlertTypeEnum.danger,
+                            description: 'Failed to sent your order',
+                            title: 'Error'
+                          });
+                        });
                     }}
                   >
                     Send Cart

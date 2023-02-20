@@ -6,30 +6,55 @@ import { useParams } from 'react-router-dom';
 import { addItemToCart, getCart, updateCart } from '../../../services/cart-service';
 import Card from 'react-bootstrap/esm/Card';
 import Button from 'react-bootstrap/esm/Button';
-import Loader from '../../loader/loader';
-import BackButton from '../../back-button/back-button';
 import Form from 'react-bootstrap/esm/Form';
-import FormattedAmount from '../../formatted-amount/formatted-amount';
+import BackButton from '../../shared/back-button/back-button';
+import Loader from '../../shared/loader/loader';
+import FormattedAmount from '../../shared/formatted-amount/formatted-amount';
+import AlertMessageModel from '../../../interfaces/alert-message';
+import AlertTypeEnum from '../../../enums/alert-type.enum';
+import AlertMessage from '../../shared/alert-message/alert-message';
 
 function ProductDetail(): JSX.Element {
   const { productId } = useParams();
+  const [alertMessage, setAlertMessage] = useState<AlertMessageModel>();
   const [quantity, setQuantity] = useState<number>(0);
   const [productDetail, setProductDetail] = useState<MapleSyrupDto>();
 
   useEffect(() => {
-    getProductDetail(productId as string).then((res) => {
-      return setProductDetail(res.data);
-    });
-    getCart().then((res) => {
-      const productLineInCart = res.data.find((line) => line.productId === productId);
-      if (productLineInCart) {
-        setQuantity(productLineInCart.qty);
-      }
-    });
+    getProductDetail(productId as string)
+      .then((res) => {
+        return setProductDetail(res.data);
+      })
+      .catch(() => {
+        setAlertMessage({
+          alertType: AlertTypeEnum.danger,
+          description: 'Failed to load product details',
+          title: 'Error'
+        });
+      });
+    getCart()
+      .then((res) => {
+        const productLineInCart = res.data.find((line) => line.productId === productId);
+        if (productLineInCart) {
+          setQuantity(productLineInCart.qty);
+        }
+      })
+      .catch(() => {
+        setAlertMessage({
+          alertType: AlertTypeEnum.danger,
+          description: 'Failed to load cart details',
+          title: 'Error'
+        });
+      });
   }, []);
 
   return (
     <div>
+      {alertMessage ? (
+        <AlertMessage title={alertMessage.title} description={alertMessage.description} alertType={alertMessage.alertType} />
+      ) : (
+        <div></div>
+      )}
       <BackButton />
       <div>
         <h1>Product detail: </h1>
@@ -91,7 +116,22 @@ function ProductDetail(): JSX.Element {
                           variant="primary"
                           disabled={productDetail.stock === 0}
                           onClick={() => {
-                            addItemToCart(productDetail.id).then(() => setQuantity(1));
+                            addItemToCart(productDetail.id)
+                              .then(() => {
+                                setQuantity(1);
+                                setAlertMessage({
+                                  alertType: AlertTypeEnum.success,
+                                  description: 'The item has been added to your cart',
+                                  title: 'Success'
+                                });
+                              })
+                              .catch(() => {
+                                setAlertMessage({
+                                  alertType: AlertTypeEnum.danger,
+                                  description: 'Failed add the item in the cart',
+                                  title: 'Error'
+                                });
+                              });
                           }}
                         >
                           Add to cart

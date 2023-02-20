@@ -3,7 +3,7 @@ import Badge from 'react-bootstrap/esm/Badge';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import CatalogueItemDto from '../../../../interfaces/catalogue-item';
-import FormattedAmount from '../../../formatted-amount/formatted-amount';
+import FormattedAmount from '../../../shared/formatted-amount/formatted-amount';
 import './catalogue-item.scss';
 
 function CatalogueItem(props: { catalogItem: CatalogueItemDto }): JSX.Element {

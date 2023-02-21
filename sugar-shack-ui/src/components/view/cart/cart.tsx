@@ -98,14 +98,12 @@ function Cart() {
                   {cartItems.map((cartItem) => (
                     <Row className="cart-element" key={cartItem.productId}>
                       <Col md={5}>
-                        {/* img + title */}
                         <Row>
                           <Col md="auto">
                             <img src={cartItem.image} alt="image of the product" className="product-image" />
                           </Col>
                           <Col md="auto">{cartItem.name}</Col>
                         </Row>
-                        {/* {cartItem.name} */}
                       </Col>
                       <Col md={2}>{cartItem.qty}</Col>
                       <Col md={2}>
@@ -135,7 +133,6 @@ function Cart() {
                 <div className="cart-actions">
                   <Button
                     onClick={() => {
-                      console.log('try to update data');
                       const orderLines = convertCartLineToOrderLine(cartItems);
                       sendOrder(orderLines)
                         .then(() => {
@@ -145,7 +142,7 @@ function Cart() {
                         .catch(() => {
                           setAlertMessage({
                             alertType: AlertTypeEnum.danger,
-                            description: 'Failed to sent your order',
+                            description: 'Failed to send your order',
                             title: 'Error'
                           });
                         });

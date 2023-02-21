@@ -42,7 +42,7 @@ function ProductDetail(): JSX.Element {
       .catch(() => {
         setAlertMessage({
           alertType: AlertTypeEnum.danger,
-          description: 'Failed to load cart details',
+          description: 'Failed to load cart detail',
           title: 'Error'
         });
       });

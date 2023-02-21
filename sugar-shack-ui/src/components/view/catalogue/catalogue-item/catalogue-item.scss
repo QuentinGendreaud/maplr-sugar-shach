@@ -2,12 +2,12 @@
 @import '../../../../styles/spacing.scss';
 
 .catalogue-item {
-  // TODO ==> Rework card rendering behaviour
-  min-width: 250px !important;
-  width: 20%;
-  max-width: 350px;
   padding: $spacing-m;
   margin: $spacing-m $spacing-m $spacing-m 0;
+
+  &.card {
+    height: calc(100% - 16px);
+  }
 
   .product-badge {
     align-self: end;

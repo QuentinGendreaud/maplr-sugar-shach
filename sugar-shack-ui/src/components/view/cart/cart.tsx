@@ -81,7 +81,7 @@ function Cart() {
         ) : (
           <div>
             {cartItems.length === 0 ? (
-              <div>There are no product in the cart yet</div>
+              <div>There is no product in the cart</div>
             ) : (
               <div className="cart-container">
                 {/* Cart list header */}

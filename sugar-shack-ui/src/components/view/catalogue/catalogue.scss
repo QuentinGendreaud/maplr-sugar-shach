@@ -1,13 +1,9 @@
 @import '../../../styles/spacing.scss';
-.catalogue-item-list {
-  display: flex;
-  flex-wrap: wrap;
 
-  .card-body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr 32px 42px;
-  }
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr 32px 42px;
 }
 
 .catalogue-filter {

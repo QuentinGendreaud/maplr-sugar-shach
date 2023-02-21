@@ -23,7 +23,7 @@ function CatalogueItem(props: { catalogItem: CatalogueItemDto }): JSX.Element {
         </span>
         <div className="more-detail">
           <Button variant="primary" href={'/product-detail/' + props.catalogItem.id} className="more-detail-button">
-            More detail
+            More&nbsp;details
           </Button>
         </div>
       </Card.Body>

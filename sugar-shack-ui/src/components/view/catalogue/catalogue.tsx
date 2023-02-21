@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Col from 'react-bootstrap/esm/Col';
+import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import AlertTypeEnum from '../../../enums/alert-type.enum';
 import CatalogueItemTypeEnum from '../../../enums/catalogue-item-type.enum';
@@ -60,10 +62,14 @@ function CatalogueView(): JSX.Element {
       </div>
 
       {/* Catalogue item list */}
-      <div className="catalogue-item-list">
-        {productList.map((catalogItem) => (
-          <CatalogueItem key={catalogItem.id} catalogItem={catalogItem} />
-        ))}
+      <div>
+        <Row sm={2} md={4} lg={6}>
+          {productList.map((catalogItem) => (
+            <Col key={catalogItem.id}>
+              <CatalogueItem catalogItem={catalogItem} />
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );
